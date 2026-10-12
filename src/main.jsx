@@ -424,7 +424,7 @@ function App() {
           ) : demo ? (
             <Demo />
           ) : (
-            <Pages path={path} />
+            <Pages path={path} motion={motion} />
           )}
         </Suspense>
       </main>

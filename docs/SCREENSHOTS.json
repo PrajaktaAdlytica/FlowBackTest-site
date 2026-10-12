@@ -203,6 +203,38 @@
       "height": 900,
       "alt": "Refined workspace desktop 1440",
       "source_assets": "Native browser render. Clean garden hero, botanical paper, sage linen, upright stamps and garden-green footer as applicable. See REFINEMENT.md."
+    },
+    {
+      "file": "product-refinement/faq-desk-1063.jpg",
+      "route": "/product/desk/",
+      "width": 1063,
+      "height": 804,
+      "alt": "faq desk 1063",
+      "source_assets": "Native module UI; quiet-rose-linen.webp and rose-lace-stripes.webp as applicable."
+    },
+    {
+      "file": "product-refinement/related-desk-1063.jpg",
+      "route": "/product/desk/",
+      "width": 1063,
+      "height": 804,
+      "alt": "related desk 1063",
+      "source_assets": "Native module UI; quiet-rose-linen.webp and rose-lace-stripes.webp as applicable."
+    },
+    {
+      "file": "product-refinement/related-report-mobile-390.jpg",
+      "route": "/product/report/",
+      "width": 390,
+      "height": 844,
+      "alt": "related report mobile 390",
+      "source_assets": "Native module UI; quiet-rose-linen.webp and rose-lace-stripes.webp as applicable."
+    },
+    {
+      "file": "product-refinement/spec-desk-1063.jpg",
+      "route": "/product/desk/",
+      "width": 1063,
+      "height": 804,
+      "alt": "spec desk 1063",
+      "source_assets": "Native module UI; quiet-rose-linen.webp and rose-lace-stripes.webp as applicable."
     }
   ]
 }

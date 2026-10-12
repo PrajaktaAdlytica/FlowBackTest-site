@@ -1,4 +1,7 @@
-import React, { useId, useState } from "react";
+import React, { useId, useState, useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 import { clearDemoData as clearPreviewData } from "./telemetry";
 import { HISTORICAL_CASES } from "./fixtures";
 const previewRecord = HISTORICAL_CASES.find((record) => record.id === "O-248");
@@ -699,7 +702,7 @@ function Module({ module: m }) {
           ))}
         </div>
       </section>
-      <section className="sub-section sub-two-column">
+      <section className="sub-section sub-two-column sub-module-faq">
         <div>
           <p className="sub-eyebrow">Questions worth asking</p>
           <h2>
@@ -2167,9 +2170,55 @@ function NotFound() {
   );
 }
 
-export default function Pages({ path = "/product" }) {
+export default function Pages({ path = "/product", motion = true }) {
   const cleanPath = path.replace(/\/$/, "") || "/";
   const module = modules.find((m) => cleanPath === `/product/${m.slug}`);
+  const scope = useRef();
+  useEffect(() => {
+    if (!module || !motion) return;
+    const ctx = gsap.context(() => {
+      const rows = gsap.utils.toArray(".sub-spec-data > div");
+      const mm = gsap.matchMedia();
+      mm.add("(min-width: 801px)", () => {
+        const sequence = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".sub-module-spec",
+            start: "top 85%",
+            end: "top 15%",
+            scrub: 0.45,
+          },
+        });
+        rows.forEach((el, i) => {
+          sequence.from(
+            el,
+            {
+              x: i % 2 ? -52 : 52,
+              opacity: 0.12,
+              duration: 0.8,
+              ease: "power2.out",
+            },
+            i * 0.55,
+          );
+        });
+      });
+      mm.add("(max-width: 800px)", () => {
+        rows.forEach((el, i) => {
+          gsap.from(el, {
+            x: i % 2 ? -24 : 24,
+            opacity: 0.12,
+            ease: "none",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 90%",
+              end: "top 62%",
+              scrub: 0.35,
+            },
+          });
+        });
+      });
+    }, scope);
+    return () => ctx.revert();
+  }, [module?.slug, motion]);
   const routes = {
     "/product": Product,
     "/method": Method,
@@ -2186,7 +2235,8 @@ export default function Pages({ path = "/product" }) {
   const Page = routes[cleanPath] || NotFound;
   return (
     <div
-      className={`sub-page ${cleanPath === "/sign-in" ? "sub-page-auth" : ""}`}
+      ref={scope}
+      className={`sub-page ${module ? "sub-page-product-module" : ""} ${cleanPath === "/sign-in" ? "sub-page-auth" : ""}`}
       data-theme="cloister"
     >
       {module ? <Module module={module} /> : <Page />}

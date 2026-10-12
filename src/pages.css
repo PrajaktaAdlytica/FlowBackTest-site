@@ -2616,3 +2616,103 @@
     transform: none;
   }
 }
+
+/* Shared heritage surfaces for the five separate product modules. */
+.sub-page-product-module .sub-module-spec {
+  max-width: none;
+  padding-left: max(40px, calc((100vw - 1280px) / 2));
+  padding-right: max(40px, calc((100vw - 1280px) / 2));
+  background-color: #dce4de;
+  background-image:
+    linear-gradient(#dce4dee0, #dce4dee0),
+    url("/media/heritage/quiet-rose-linen.webp");
+  background-size: cover;
+  border-top: 1px solid #b5c2b6;
+  border-bottom: 1px solid #b5c2b6;
+}
+.sub-page-product-module .sub-spec-heading > p {
+  color: #425447;
+}
+.sub-page-product-module .sub-spec-data > div {
+  border-color: #91a48f;
+  position: relative;
+  padding-left: 20px;
+}
+.sub-page-product-module .sub-spec-data > div::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 30px;
+  width: 5px;
+  height: 5px;
+  background: #743f48;
+  border-radius: 50%;
+}
+.sub-page-product-module .sub-module-faq {
+  max-width: none;
+  padding-left: max(40px, calc((100vw - 1280px) / 2));
+  padding-right: max(40px, calc((100vw - 1280px) / 2));
+  background: #743f48;
+  color: #fffefa;
+}
+.sub-page-product-module .sub-module-faq .sub-eyebrow {
+  color: #e3cda6;
+}
+.sub-page-product-module .sub-module-faq .sub-faq details {
+  border-color: #fffefa55;
+}
+.sub-page-product-module .sub-module-faq .sub-faq summary > span {
+  color: #e3cda6;
+}
+.sub-page-product-module .sub-module-faq .sub-faq details p {
+  color: #f0e4dc;
+}
+.sub-page-product-module .sub-module-faq .sub-faq summary:hover {
+  color: #e3cda6;
+}
+.sub-page-product-module .sub-related {
+  max-width: none;
+  padding: 85px max(40px, calc((100vw - 1280px) / 2));
+  background:
+    linear-gradient(#f3ecdfc4, #f3ecdfc4),
+    url("/media/heritage/rose-lace-stripes.webp") center / cover;
+}
+.sub-page-product-module .sub-related-links {
+  gap: 18px;
+}
+.sub-page-product-module .sub-related-links > a {
+  background: #fffefaf0;
+  border: 1px solid #c8bfab;
+  padding: 25px 24px;
+  box-shadow: 0 5px 15px #51462e0a;
+  transition:
+    background 0.25s,
+    border-color 0.25s,
+    box-shadow 0.25s;
+}
+.sub-page-product-module .sub-related-links > a:hover {
+  background: #fffefa;
+  border-color: #743f48;
+  box-shadow: 0 8px 24px #51462e14;
+}
+@media (max-width: 1100px) {
+  .sub-page-product-module .sub-module-spec,
+  .sub-page-product-module .sub-module-faq,
+  .sub-page-product-module .sub-related {
+    padding: 65px 30px;
+  }
+}
+@media (max-width: 540px) {
+  .sub-page-product-module .sub-module-spec,
+  .sub-page-product-module .sub-module-faq,
+  .sub-page-product-module .sub-related {
+    padding: 50px 22px;
+  }
+  .sub-page-product-module .sub-related-links > a {
+    gap: 14px;
+    padding: 22px 18px;
+  }
+  .sub-page-product-module .sub-related-links > a h3 {
+    font-size: 27px;
+  }
+}
