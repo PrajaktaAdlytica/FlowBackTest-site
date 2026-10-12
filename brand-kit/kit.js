@@ -1,0 +1,9 @@
+let timer;
+function toast(text){const el=document.getElementById('toast');el.textContent=text;el.classList.add('visible');clearTimeout(timer);timer=setTimeout(()=>el.classList.remove('visible'),2400)}
+document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(b.dataset.copy);toast('Copied '+b.dataset.copy)}catch{toast('Colour: '+b.dataset.copy)}}));
+document.getElementById('theme-toggle').addEventListener('click',function(){const cloister=document.body.dataset.theme==='garden';document.body.dataset.theme=cloister?'cloister':'garden';this.setAttribute('aria-pressed',String(cloister));this.textContent=cloister?'Preview Garden theme':'Preview Cloister theme';toast(cloister?'Cloister action and focus colours':'Garden action and focus colours')});
+document.querySelectorAll('.effect-trigger').forEach(b=>b.addEventListener('click',()=>{const active=b.classList.toggle('is-preview');b.setAttribute('aria-pressed',String(active))}));
+document.getElementById('preview-all').addEventListener('click',function(){const active=this.getAttribute('aria-pressed')!=='true';this.setAttribute('aria-pressed',String(active));this.querySelector('span').textContent=active?'Reset hover states':'Show all hover states';document.querySelectorAll('.effect-trigger').forEach(b=>{b.classList.toggle('is-preview',active);b.setAttribute('aria-pressed',String(active))})});
+document.getElementById('reduce-motion').addEventListener('change',function(){document.body.classList.toggle('motion-off',this.checked)});
+document.querySelectorAll('.icon-tile').forEach(b=>b.addEventListener('click',()=>b.classList.toggle('is-preview')));
+document.querySelectorAll('.social-tile').forEach(b=>b.addEventListener('click',()=>toast('Social tile preview — no company profile connected')));

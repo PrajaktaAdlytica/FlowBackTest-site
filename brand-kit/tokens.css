@@ -1,0 +1,56 @@
+@font-face{font-family:"EB Garamond";src:url("fonts/EBGaramond-variable.ttf") format("truetype");font-weight:400 800;font-display:swap}
+@font-face{font-family:"EB Garamond";src:url("fonts/EBGaramond-Italic-variable.ttf") format("truetype");font-weight:400 800;font-style:italic;font-display:swap}
+@font-face{font-family:"Source Sans 3";src:url("fonts/SourceSans3-variable.ttf") format("truetype");font-weight:200 900;font-display:swap}
+:root{
+--fb-chalk:#F4F0E6;
+--fb-paper:#FFFEFA;
+--fb-limestone:#D0C7B6;
+--fb-sage:#AAB69B;
+--fb-yew:#243D2E;
+--fb-ink:#222B25;
+--fb-burgundy:#743F48;
+--fb-brass:#B89B69;
+--fb-muted:#5D655C;
+--fb-border:#C9CDBF;
+--fb-strong-border:#7B8375;
+--fb-yew-hover:#34583F;
+--fb-yew-pressed:#192F23;
+--fb-burgundy-hover:#8C4F59;
+--fb-burgundy-pressed:#592F37;
+--fb-error:#983D3A;
+--fb-error-soft:#F6E5DF;
+--fb-warning:#795526;
+--fb-warning-soft:#F5ECD9;
+--fb-info:#3E5D66;
+--fb-info-soft:#E6EEEF;
+--fb-success:#315D3D;
+--fb-success-soft:#E6EDE1;
+--fb-disabled-bg:#E2E3D8;
+--fb-disabled-text:#73796E;
+--fb-canvas:var(--fb-chalk);
+--fb-surface:var(--fb-paper);
+--fb-surface-muted:var(--fb-limestone);
+--fb-text:var(--fb-ink);
+--fb-text-muted:var(--fb-muted);
+--fb-action:var(--fb-yew);
+--fb-action-hover:var(--fb-yew-hover);
+--fb-action-pressed:var(--fb-yew-pressed);
+--fb-action-text:var(--fb-paper);
+--fb-focus:var(--fb-burgundy);
+--fb-control-border:var(--fb-strong-border);
+--fb-space-4:4px;
+--fb-space-8:8px;
+--fb-space-12:12px;
+--fb-space-16:16px;
+--fb-space-24:24px;
+--fb-space-32:32px;
+--fb-space-48:48px;
+--fb-space-64:64px;
+--fb-space-96:96px;
+--fb-space-128:128px;
+--fb-font-display:'EB Garamond',Georgia,serif;--fb-font-body:'Source Sans 3',system-ui,sans-serif;
+--fb-radius-control:8px;--fb-radius-card:12px;--fb-radius-gallery:16px;
+--fb-shadow-low:0 2px 8px rgb(34 43 37 / .06);--fb-shadow-card:0 8px 24px rgb(34 43 37 / .09);--fb-shadow-panel:0 20px 56px rgb(34 43 37 / .14);
+--fb-ease:cubic-bezier(.22,.61,.36,1);--fb-motion-micro:160ms;--fb-motion-standard:260ms;--fb-motion-scene:650ms;
+}
+[data-theme="cloister"]{--fb-action:var(--fb-burgundy);--fb-action-hover:var(--fb-burgundy-hover);--fb-action-pressed:var(--fb-burgundy-pressed);--fb-focus:var(--fb-yew)}

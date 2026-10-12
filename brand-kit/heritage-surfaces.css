@@ -1,0 +1,9 @@
+/* Finite original PNG surfaces. Use single panels; seamless repetition unverified. */
+.fbt-surface-botanical-postage-background { background-image: url("assets/heritage/botanical-postage-background.png"); background-position: center; background-size: cover; background-repeat: no-repeat; }
+.fbt-surface-rose-lace-panel { background-image: url("assets/heritage/rose-lace-panel.png"); background-position: center; background-size: cover; background-repeat: no-repeat; }
+.fbt-surface-botanical-diamond-paper { background-image: url("assets/heritage/botanical-diamond-paper.png"); background-position: center; background-size: cover; background-repeat: no-repeat; }
+.fbt-surface-rose-lace-stripes { background-image: url("assets/heritage/rose-lace-stripes.png"); background-position: center; background-size: cover; background-repeat: no-repeat; }
+.fbt-surface-oxblood-country-tartan { background-image: url("assets/heritage/oxblood-country-tartan.png"); background-position: center; background-size: cover; background-repeat: no-repeat; }
+.fbt-surface-quiet-rose-linen { background-image: url("assets/heritage/quiet-rose-linen.png"); background-position: center; background-size: cover; background-repeat: no-repeat; }
+
+.fbt-material-inset { background: #FFFEFA; color: #243D2E; padding: clamp(24px, 4vw, 48px); }

@@ -1,0 +1,32 @@
+FlowBackTest brand kit QA — 12 October 2026
+
+Confirmed in actual Codex in-app browser renders:
+- Desktop document viewport 1280 x 720: fonts loaded, no missing images, no page-wide horizontal overflow.
+- Narrow document viewport 390 x 844, rendered in an iframe: clientWidth 390; document scrollWidth 390. Inspected cover, interaction cards and logo layout. This is a responsive layout test, not a mobile-device/touch/browser compatibility certification.
+- Show all hover states: five component previews become active with aria-pressed=true.
+- Individual card: Enter toggles aria-pressed false then true.
+- Garden/Cloister theme toggle: action color changes to burgundy #743F48.
+- Reduced-motion preview: flip face transform none and transition duration 0s.
+- Source images/fonts/social icons: no failed image loads in final document.
+- Local reference audit: no missing href/src files in the three entry HTML pages.
+- All 21 proprietary logo SVG files parse as XML.
+- 16 specified solid-color contrast pairs meet their chosen 4.5:1 text or 3:1 control targets. Detailed ratios: contrast-audit.json. This is not a blanket website accessibility claim.
+
+Captured evidence:
+- ../FlowBackTest_Logo_Options.jpg: genuine full-page browser capture of the three vector logo candidates.
+- assets/brand-kit-desktop.jpg: genuine desktop interaction preview.
+- assets/brand-kit-390px-preview.jpg: genuine browser capture of the narrow document preview.
+
+Limitations / remaining decisions:
+- Logo recognizability/customer perception has not been tested with independent users.
+- Logo and trademark/domain selection are unresolved.
+- Final website scenes, scroll camera choreography, integration, lead form, analytics and deployment are separate implementation work.
+- Social controls demonstrate styling; actual FlowBackTest LinkedIn/Crunchbase profile URLs are not supplied.
+- System prefers-reduced-motion CSS is included; manual reduced-motion component toggle was verified, not an OS setting change.
+
+IMAGERY ADDITION QA / 12 October 2026
+19 original PNGs inspected; every manifest image responds HTTP 200. Two botanical PNGs have native alpha channels. Desktop gallery reviewed in browser; 390px iframe has clientWidth=scrollWidth=390 (no horizontal overflow). Hero and card assets contain no baked website text. Native image dimensions range from 1254px square to 1774x887; these are not 4K images. No resizing/upscaling performed. Operational UI and process diagrams are intentionally separate editable components.
+
+SELECTED LOGO QA: 16 SVG files parsed successfully as XML, each with viewBox, no image or text elements, no external file dependencies. Primary, black, burgundy and reversed wordmarks reviewed in browser. FB at 16/24/32/48/96 CSS px reviewed; recommend >=24px. App icons light/dark reviewed. SVG source is vectorization of the selected generated concept, not a newly designed typeface.
+
+HERITAGE MATERIALS QA: 10 PNG masters inspected and all asset URLs return HTTP 200. Lace and three stamps retain native alpha. Original background/reference mapping and prompts documented. Desktop application preview captured; 390px iframe reviewed with clientWidth=scrollWidth=390. No artificial upscaling or seamless-tiling claim. Evidence stamp refined to horizontal process uncertainty intervals; no finance/candlestick chart retained.

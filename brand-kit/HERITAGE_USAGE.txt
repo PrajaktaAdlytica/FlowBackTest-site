@@ -1,0 +1,12 @@
+FlowBackTest — Heritage materials
+10 native PNG assets generated with built-in ImageGen. Full prompts and user-reference mapping in heritage-manifest.json. Original input references are not redistributed.
+
+DESIGN ROLES
+Five decorative backgrounds + quiet linen + transparent lace strip + three transparent stamp illustrations.
+Use ornate backgrounds for selected editorial sections, image mats and card backs. Keep data, forms and navigation on calm solid surfaces. Rose and slate are material accents, not changes to core action/focus tokens.
+
+IMPLEMENTATION
+Single-panel/cover use only: seamless edge repetition was not verified. Preserve alpha for lace and stamps. Dark copy should sit on a solid ivory inset over floral and tartan images. Keep the logo flat on a calm surface. Native masters are not artificially upscaled.
+
+STAMP RULE
+Decorative stationery only. Do not label these as verified, compliant, certified or approved evidence. Report drawings are illustrative, not customer-data predictions.

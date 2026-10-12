@@ -1,0 +1,42 @@
+FlowBackTest — Logo research and design decisions
+Research via configured Perplexity high preset, with primary-source follow-up.
+12 October 2026
+
+1. Small-size artwork can differ from the master.
+GOV.UK defines separate small-logo artwork within its own identity system. This supports testing simplified candidates rather than blindly shrinking the master. Its exact dimensions are not a universal standard.
+Source: https://brand.design-system.service.gov.uk/logo-system/logo-elements/
+FlowBackTest decision: dedicated 16px marks; inspect 16, 24, 32 and 64px browser renders. Final platform icon exports follow selection.
+
+2. Preserve clear space and create positive/reversed variants.
+IBM documents space and positive/reversed logo artwork, including optical considerations. Other identities' measurements do not transfer automatically.
+Source: https://www.ibm.com/design/language/ibm-logos/8-bar/
+FlowBackTest decision: proposed clear space of one-quarter mark height; a slightly lighter reverse mark stroke; quiet solid backgrounds behind the logo.
+
+3. Keep mark, wordmark and UI icons distinct in purpose.
+Lucide publishes a consistent 24px grid/2px stroke approach for interface icons. It is not a logo-design template.
+Source: https://lucide.dev/contribute/icons/specification
+FlowBackTest decision: proprietary vector logo paths; Lucide for interface actions. EB Garamond outlined wordmarks express the selected garden/cloister editorial direction; Source Sans 3 keeps navigation and data readable.
+
+4. A logo's usability is more than decorative contrast.
+WCAG treats logos differently from ordinary body text; active controls still need readable functional cues. Do not label the whole identity accessible because a mark's color was tested.
+Sources: https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum
+https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast
+FlowBackTest decision: high-contrast yew/paper masters, visible keyboard focus, separate tested text/control combinations, and a small-size inspection.
+
+5. Social marks are third-party artwork.
+LinkedIn supplies an [in] mark and usage guidance. Crunchbase provides official press logo assets. Neither is a FlowBackTest partnership badge.
+Sources: https://brand.linkedin.com/in-logo
+https://brand.linkedin.com/downloads
+https://about.crunchbase.com/press
+FlowBackTest decision: use unchanged official artwork, animate the surrounding tile and border, and link only to verified future company profiles.
+
+6. Original design rationale is a creative recommendation.
+Branch & Return: alternative paths reunite at a comparison. Recommended for the product mechanism.
+Paired Thresholds: offset open gates share a passage. Strong architectural connection to the selected visual identity.
+Replay Register: chronological steps return to a previous reference edge. A more technical compact mark.
+These are original design candidates, not source-prescribed shapes, recognizability research or trademark-clearance findings.
+
+Font provenance and licenses:
+https://github.com/google/fonts/tree/main/ofl/ebgaramond
+https://github.com/google/fonts/tree/main/ofl/sourcesans3
+OFL notices are bundled. Logo wordmarks are outlined vectors; no modified font is distributed.

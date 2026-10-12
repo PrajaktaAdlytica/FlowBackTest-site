@@ -1,0 +1,130 @@
+[
+  {
+    "role": "Body",
+    "foreground": "#222B25",
+    "background": "#F4F0E6",
+    "ratio": 12.81,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "role": "Muted",
+    "foreground": "#5D655C",
+    "background": "#FFFEFA",
+    "ratio": 5.98,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "role": "Garden CTA",
+    "foreground": "#FFFEFA",
+    "background": "#243D2E",
+    "ratio": 11.68,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "role": "Cloister CTA",
+    "foreground": "#FFFEFA",
+    "background": "#743F48",
+    "ratio": 8.17,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "role": "Control border",
+    "foreground": "#7B8375",
+    "background": "#FFFEFA",
+    "ratio": 3.89,
+    "threshold": 3,
+    "pass": true
+  },
+  {
+    "role": "Error",
+    "foreground": "#983D3A",
+    "background": "#F6E5DF",
+    "ratio": 5.61,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "role": "Warning",
+    "foreground": "#795526",
+    "background": "#F5ECD9",
+    "ratio": 5.69,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "role": "Info",
+    "foreground": "#3E5D66",
+    "background": "#E6EEEF",
+    "ratio": 6.02,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "role": "Success",
+    "foreground": "#315D3D",
+    "background": "#E6EDE1",
+    "ratio": 6.36,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "role": "Focus on chalk",
+    "foreground": "#743F48",
+    "background": "#F4F0E6",
+    "ratio": 7.24,
+    "threshold": 3,
+    "pass": true
+  },
+  {
+    "role": "Garden hover",
+    "foreground": "#FFFEFA",
+    "background": "#34583F",
+    "ratio": 7.96,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "role": "Garden pressed",
+    "foreground": "#FFFEFA",
+    "background": "#192F23",
+    "ratio": 14.13,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "role": "Cloister hover",
+    "foreground": "#FFFEFA",
+    "background": "#8C4F59",
+    "ratio": 6.16,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "role": "Cloister pressed",
+    "foreground": "#FFFEFA",
+    "background": "#592F37",
+    "ratio": 11.03,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "role": "Muted on chalk",
+    "foreground": "#5D655C",
+    "background": "#F4F0E6",
+    "ratio": 5.3,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "role": "Focus on paper",
+    "foreground": "#243D2E",
+    "background": "#FFFEFA",
+    "ratio": 11.68,
+    "threshold": 3,
+    "pass": true
+  }
+]
