@@ -267,6 +267,30 @@
       "height": 804,
       "alt": "shutters desktop 1063",
       "source_assets": "Native browser render. Shutters use quiet-rose-linen.webp and botanical-diamond-paper.webp."
+    },
+    {
+      "file": "data-refinement/checks-desktop-1063.jpg",
+      "route": "/data/",
+      "width": 1063,
+      "height": 804,
+      "alt": "checks desktop 1063",
+      "source_assets": "Native table and cards; approved botanical/linen/lace assets as applicable."
+    },
+    {
+      "file": "data-refinement/comparison-desktop-1063.jpg",
+      "route": "/data/",
+      "width": 1063,
+      "height": 804,
+      "alt": "comparison desktop 1063",
+      "source_assets": "Native table and cards; approved botanical/linen/lace assets as applicable."
+    },
+    {
+      "file": "data-refinement/record-mobile-390.jpg",
+      "route": "/data/",
+      "width": 390,
+      "height": 844,
+      "alt": "record mobile 390",
+      "source_assets": "Native table and cards; approved botanical/linen/lace assets as applicable."
     }
   ]
 }

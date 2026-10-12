@@ -1008,7 +1008,54 @@ function Method({ motion = true }) {
   );
 }
 
-function Data() {
+function Data({ motion = true }) {
+  const review = useRef();
+  useEffect(() => {
+    if (!motion) return;
+    const ctx = gsap.context(() => {
+      const rows = gsap.utils.toArray(".sub-data-checks > div");
+      const mm = gsap.matchMedia();
+      mm.add("(min-width: 801px)", () => {
+        const sequence = gsap.timeline({
+          scrollTrigger: {
+            trigger: review.current,
+            start: "top 85%",
+            end: "top 10%",
+            scrub: 0.4,
+          },
+        });
+        rows.forEach((el, i) =>
+          sequence.from(
+            el,
+            {
+              x: i % 2 ? -44 : 44,
+              opacity: 0.12,
+              duration: 0.75,
+              ease: "power2.out",
+            },
+            i * 0.45,
+          ),
+        );
+      });
+      mm.add("(max-width: 800px)", () => {
+        rows.forEach((el, i) =>
+          gsap.from(el, {
+            x: i % 2 ? -24 : 24,
+            opacity: 0.12,
+            ease: "none",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 90%",
+              end: "top 60%",
+              scrub: 0.35,
+            },
+          }),
+        );
+      });
+    }, review);
+    ScrollTrigger.refresh();
+    return () => ctx.revert();
+  }, [motion]);
   return (
     <>
       <Hero
@@ -1024,7 +1071,7 @@ function Data() {
         image={`${ASSET}cloister-source.webp`}
         imageAlt="An ivory stack of paper held in a limestone document block."
       />
-      <section className="sub-section">
+      <section className="sub-section sub-data-record">
         <SectionTitle
           eyebrow="A minimum useful event record"
           title="Four fields. Context alongside them."
@@ -1092,7 +1139,7 @@ function Data() {
           privately with the process owner.
         </Notice>
       </section>
-      <section className="sub-section sub-data-review">
+      <section className="sub-section sub-data-review" ref={review}>
         <div>
           <span className="sub-eyebrow">Before a model runs</span>
           <h2>
@@ -1144,7 +1191,11 @@ function Data() {
           text="FlowBackTest is a proposed agent-specific study approach. It must demonstrate value beyond an incumbent workflow, consultant or manual model."
         />
         <div className="sub-comparison">
-          <article>
+          <article
+            className="data-comparison-card"
+            tabIndex="0"
+            aria-label="Celonis comparison"
+          >
             <p className="sub-eyebrow">Celonis</p>
             <h3>Process intelligence & simulation</h3>
             <p>
@@ -1161,7 +1212,11 @@ function Data() {
               <Icon size={18} />
             </a>
           </article>
-          <article>
+          <article
+            className="data-comparison-card"
+            tabIndex="0"
+            aria-label="UiPath comparison"
+          >
             <p className="sub-eyebrow">UiPath</p>
             <h3>Process mining & automation ideas</h3>
             <p>
@@ -1179,7 +1234,11 @@ function Data() {
               <Icon size={18} />
             </a>
           </article>
-          <article>
+          <article
+            className="data-comparison-card"
+            tabIndex="0"
+            aria-label="Other substitutes comparison"
+          >
             <p className="sub-eyebrow">Other substitutes</p>
             <h3>BPM, consultants & manual mapping</h3>
             <p>
