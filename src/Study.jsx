@@ -7,19 +7,6 @@ import {
   clearDemoData,
   downloadJSON,
 } from "./telemetry.js";
-const sample = {
-  name: "Alex Morgan",
-  email: "alex@example.com",
-  company: "Kestrel Wholesale (fictional)",
-  role: "Process excellence director",
-  process: "Order-to-cash",
-  owner: "Jordan Hale — ERP process owner (fictional)",
-  date: "2026-11-16",
-  stack: "Existing process-mining workflow",
-  decision: "Where to insert agent triage before human credit review.",
-  optin: false,
-  consent: false,
-};
 const emptyForm = {
   name: "",
   email: "",
@@ -80,22 +67,6 @@ export default function Study() {
           Which agent handoff are you considering—and what would you need to see
           before rollout?
         </p>
-        <div className="study-boundary">
-          <span className="badge">Demo form · no submission</span>
-          <p>
-            Use fictional details to explore this flow. Your draft stays in this
-            tab’s memory and clears on refresh. Nothing is sent.
-          </p>
-          <button
-            className="text-link"
-            onClick={() => {
-              setValues(sample);
-              setDone(false);
-            }}
-          >
-            Use sample details <Arrow />
-          </button>
-        </div>
         <ol className="study-steps">
           <li>
             <b>01</b>

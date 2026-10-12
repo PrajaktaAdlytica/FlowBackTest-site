@@ -1581,19 +1581,6 @@ button:hover > svg {
   font-size: 21px;
   max-width: 420px;
 }
-.study-boundary {
-  margin-top: 30px;
-  background: #e6e8dc;
-  padding: 20px;
-  max-width: 420px;
-}
-.study-boundary p {
-  font-size: 13px;
-  margin: 15px 0;
-}
-.study-boundary .text-link {
-  font-size: 12px;
-}
 .study-steps {
   list-style: none;
   margin: 32px 0;
@@ -2126,9 +2113,6 @@ button:hover > svg {
   }
   .study-intro h1 {
     font-size: 70px;
-  }
-  .study-boundary {
-    max-width: none;
   }
   .study-steps {
     display: none;
