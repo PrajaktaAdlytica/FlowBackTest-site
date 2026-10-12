@@ -766,8 +766,70 @@ const methodSteps = [
   ],
 ];
 
-function Method() {
+function Method({ motion = true }) {
   const [step, setStep] = useState(0);
+  const [tallEnough, setTallEnough] = useState(() => innerHeight >= 760);
+  const scrollProtocol = motion && tallEnough;
+  const protocol = useRef();
+  const decisions = useRef();
+  useEffect(() => {
+    const query = matchMedia("(min-height: 760px)");
+    const update = (e) => setTallEnough(e.matches);
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, []);
+  useEffect(() => {
+    if (!motion) return;
+    const updateStep = (self) =>
+      setStep(Math.min(4, Math.floor(self.progress * 5)));
+    const stageTrigger = scrollProtocol
+      ? ScrollTrigger.create({
+          trigger: protocol.current,
+          start: "top 100px",
+          end: () =>
+            "+=" +
+            Math.max(1, protocol.current.offsetHeight - (innerHeight - 100)),
+          invalidateOnRefresh: true,
+          onUpdate: updateStep,
+          onRefresh: updateStep,
+        })
+      : null;
+    const ctx = gsap.context(() => {
+      gsap.utils.toArray("article").forEach((el, i) => {
+        gsap.from(el, {
+          x: (i === 0 ? -1 : 1) * (innerWidth < 540 ? 24 : 80),
+          opacity: 0.12,
+          duration: 0.85,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 90%",
+            end: "bottom 8%",
+            toggleActions: "play reverse play reverse",
+          },
+        });
+      });
+    }, decisions);
+    ScrollTrigger.refresh();
+    return () => {
+      stageTrigger?.kill();
+      ctx.revert();
+    };
+  }, [motion, scrollProtocol]);
+  function chooseStage(i) {
+    setStep(i);
+    if (!scrollProtocol) return;
+    const region = protocol.current;
+    const distance = Math.max(1, region.offsetHeight - (innerHeight - 100));
+    window.scrollTo({
+      top:
+        window.scrollY +
+        region.getBoundingClientRect().top -
+        100 +
+        distance * ((i + 0.4) / 5),
+      behavior: "instant",
+    });
+  }
   return (
     <>
       <Hero
@@ -790,7 +852,11 @@ function Method() {
       </Hero>
       <section className="sub-section">
         <div className="sub-principle-pair">
-          <article>
+          <article
+            className="method-principle-card"
+            tabIndex="0"
+            aria-label="Simulation: what could happen?"
+          >
             <span className="sub-eyebrow">Simulation</span>
             <h2>What could happen?</h2>
             <p>
@@ -802,7 +868,11 @@ function Method() {
               Scenario + distributions + seed <Icon /> illustrative range
             </div>
           </article>
-          <article>
+          <article
+            className="method-principle-card"
+            tabIndex="0"
+            aria-label="Calibration: how well did it match?"
+          >
             <span className="sub-eyebrow">Calibration</span>
             <h2>How well did it match?</h2>
             <p>
@@ -815,46 +885,63 @@ function Method() {
           </article>
         </div>
       </section>
-      <section className="sub-section sub-method-section">
-        <SectionTitle
-          eyebrow="The proposed study protocol"
-          title="Evidence, before expansion."
-          text="No universal accuracy target is invented here. The sponsor and process owner agree criteria for their specific decision."
-        />
-        <div className="sub-method-workflow">
-          <div className="sub-method-nav" aria-label="Study protocol stages">
-            {methodSteps.map((s, i) => (
-              <button
-                className={step === i ? "is-active" : ""}
-                key={s[0]}
-                aria-pressed={step === i}
-                onClick={() => setStep(i)}
-              >
-                <span>0{i + 1}</span>
-                {s[0]}
-                <Icon />
-              </button>
-            ))}
-          </div>
-          <div className="sub-method-detail" aria-live="polite">
-            <span className="sub-method-number">0{step + 1}</span>
-            <h3>{methodSteps[step][0]}</h3>
-            <p>{methodSteps[step][1]}</p>
-            <div>
-              <Icon type="source" />
-              <span>
-                Evidence at this stage<strong>{methodSteps[step][2]}</strong>
-              </span>
+      <section
+        className={`sub-section sub-method-section ${scrollProtocol ? "sub-method-scroll" : ""}`}
+        ref={protocol}
+      >
+        <div className="sub-method-pin">
+          <SectionTitle
+            eyebrow="The proposed study protocol"
+            title="Evidence, before expansion."
+            text="No universal accuracy target is invented here. The sponsor and process owner agree criteria for their specific decision."
+          />
+          <div className="sub-method-workflow">
+            <div className="sub-method-nav" aria-label="Study protocol stages">
+              {methodSteps.map((s, i) => (
+                <button
+                  className={step === i ? "is-active" : ""}
+                  key={s[0]}
+                  aria-pressed={step === i}
+                  onClick={() => chooseStage(i)}
+                  aria-label={`Stage 0${i + 1}: ${s[0]}`}
+                >
+                  <span>0{i + 1}</span>
+                  {s[0]}
+                  <Icon />
+                </button>
+              ))}
             </div>
+            <div className="sub-method-detail" aria-live="polite" key={step}>
+              <span className="sub-method-number">0{step + 1}</span>
+              <h3>{methodSteps[step][0]}</h3>
+              <p>{methodSteps[step][1]}</p>
+              <div>
+                <Icon type="source" />
+                <span>
+                  Evidence at this stage<strong>{methodSteps[step][2]}</strong>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div className="sub-method-progress">
+            <span>
+              {scrollProtocol
+                ? "Scroll to follow the study"
+                : "Choose a stage to explore"}{" "}
+              · {step + 1} / 5
+            </span>
+            <a href="#method-decision">
+              Skip to the build decision <Icon />
+            </a>
           </div>
         </div>
       </section>
-      <section className="sub-section">
+      <section className="sub-section" id="method-decision">
         <SectionTitle
           eyebrow="A falsifiable build decision"
           title="The threshold is useful evidence."
         />
-        <div className="sub-go-pause">
+        <div className="sub-go-pause" ref={decisions}>
           <article>
             <p className="sub-eyebrow">Continue only when</p>
             <h3>The model improves the decision.</h3>
@@ -2239,7 +2326,7 @@ export default function Pages({ path = "/product", motion = true }) {
       className={`sub-page ${module ? "sub-page-product-module" : ""} ${cleanPath === "/sign-in" ? "sub-page-auth" : ""}`}
       data-theme="cloister"
     >
-      {module ? <Module module={module} /> : <Page />}
+      {module ? <Module module={module} /> : <Page motion={motion} />}
     </div>
   );
 }

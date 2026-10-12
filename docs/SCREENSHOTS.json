@@ -235,6 +235,38 @@
       "height": 804,
       "alt": "spec desk 1063",
       "source_assets": "Native module UI; quiet-rose-linen.webp and rose-lace-stripes.webp as applicable."
+    },
+    {
+      "file": "method-refinement/decision-panels-1063.jpg",
+      "route": "/method/",
+      "width": 1063,
+      "height": 804,
+      "alt": "decision panels 1063",
+      "source_assets": "Native browser render. Shutters use quiet-rose-linen.webp and botanical-diamond-paper.webp."
+    },
+    {
+      "file": "method-refinement/protocol-desktop-1063.jpg",
+      "route": "/method/",
+      "width": 1063,
+      "height": 804,
+      "alt": "protocol desktop 1063",
+      "source_assets": "Native browser render. Shutters use quiet-rose-linen.webp and botanical-diamond-paper.webp."
+    },
+    {
+      "file": "method-refinement/protocol-mobile-390.jpg",
+      "route": "/method/",
+      "width": 390,
+      "height": 844,
+      "alt": "protocol mobile 390",
+      "source_assets": "Native browser render. Shutters use quiet-rose-linen.webp and botanical-diamond-paper.webp."
+    },
+    {
+      "file": "method-refinement/shutters-desktop-1063.jpg",
+      "route": "/method/",
+      "width": 1063,
+      "height": 804,
+      "alt": "shutters desktop 1063",
+      "source_assets": "Native browser render. Shutters use quiet-rose-linen.webp and botanical-diamond-paper.webp."
     }
   ]
 }
