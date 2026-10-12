@@ -17,11 +17,16 @@ import {
 } from "./telemetry.js";
 import "./styles.css";
 function Header({ path, motion, setMotion }) {
+  const headerRef = useRef(null), navRef = useRef(null), menuRef = useRef(null);
   const [open, setOpen] = useState(false),
     [menu, setMenu] = useState(false),
-    [scrolled, setScrolled] = useState(false);
+    [scrolled, setScrolled] = useState(false),
+    [introVisible, setIntroVisible] = useState(path === "/");
   useEffect(() => {
-    const f = () => setScrolled(window.scrollY > 30);
+    const f = () => {
+      setScrolled(window.scrollY > 30);
+      setIntroVisible(path === "/" && !!document.querySelector(".opening-intro") && document.querySelector(".opening-intro").getBoundingClientRect().bottom > 100);
+    };
     window.addEventListener("scroll", f, { passive: true });
     return () => window.removeEventListener("scroll", f);
   }, []);
@@ -35,9 +40,18 @@ function Header({ path, motion, setMotion }) {
     window.addEventListener("keydown", f);
     return () => window.removeEventListener("keydown", f);
   }, []);
+  useEffect(() => {
+    if (!menu) return;
+    navRef.current?.querySelector("button, a")?.focus();
+    const closeOutside = e => { if (!headerRef.current?.contains(e.target)) setMenu(false); };
+    const escape = e => { if (e.key === "Escape") { setMenu(false); menuRef.current?.focus(); } };
+    document.addEventListener("pointerdown", closeOutside);
+    document.addEventListener("keydown", escape);
+    return () => { document.removeEventListener("pointerdown", closeOutside); document.removeEventListener("keydown", escape); };
+  }, [menu]);
   return (
-    <header
-      className={`site-header ${scrolled ? "is-scrolled" : ""} ${open || menu ? "is-open" : ""}`}
+    <header ref={headerRef}
+      className={`site-header ${introVisible ? "is-intro" : ""} ${scrolled ? "is-scrolled" : ""} ${open || menu ? "is-open" : ""}`}
     >
       <a className="wordmark" href="/" aria-label="FlowBackTest home">
         <img
@@ -47,7 +61,7 @@ function Header({ path, motion, setMotion }) {
           height="34"
         />
       </a>
-      <nav
+      <nav ref={navRef}
         className={`desktop-nav ${menu ? "mobile-open" : ""}`}
         aria-label="Main navigation"
       >
@@ -105,6 +119,7 @@ function Header({ path, motion, setMotion }) {
           Request a study <Arrow />
         </a>
         <button
+          ref={menuRef}
           className="menu-toggle"
           aria-expanded={menu}
           aria-label={menu ? "Close navigation" : "Open navigation"}

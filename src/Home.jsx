@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
+import OpeningIntro from "./OpeningIntro.jsx";
 import { Arrow } from "./ui.jsx";
 gsap.registerPlugin(ScrollTrigger);
 const chapters = [
@@ -453,6 +454,7 @@ function ModuleCard({ module: m }) {
 }
 function Home({ motion }) {
   const scope = useRef();
+  const introScroll = useRef(null);
   useEffect(() => {
     if (!motion) return;
     let lenis;
@@ -460,6 +462,7 @@ function Home({ motion }) {
       const mm = gsap.matchMedia();
       mm.add("(min-width: 900px)", () => {
         lenis = new Lenis({ duration: 0.85, smoothWheel: true, anchors: true });
+        introScroll.current = lenis;
         lenis.on("scroll", ScrollTrigger.update);
         const raf = (time) => lenis.raf(time * 1000);
         gsap.ticker.add(raf);
@@ -488,6 +491,7 @@ function Home({ motion }) {
         return () => {
           gsap.ticker.remove(raf);
           lenis.destroy();
+          introScroll.current = null;
         };
       });
       const entrances = [
@@ -546,8 +550,14 @@ function Home({ motion }) {
   }, [motion]);
   return (
     <div className="home" ref={scope}>
+      <OpeningIntro motion={motion} onEnter={() => {
+        const hero = document.getElementById("home-hero");
+        if (introScroll.current) introScroll.current.scrollTo(hero, { duration: 1.4 });
+        else if (hero) window.scrollTo({ top: hero.offsetTop, behavior: motion ? "smooth" : "instant" });
+      }} />
       <section
         className="hero"
+        id="home-hero"
         onPointerMove={(e) => {
           if (!motion || e.pointerType !== "mouse") return;
           const r = e.currentTarget.getBoundingClientRect();
