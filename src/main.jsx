@@ -1,4 +1,7 @@
-import React, { useEffect, useState, lazy, Suspense } from "react";
+import React, { useEffect, useState, useRef, lazy, Suspense } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 import { createRoot } from "react-dom/client";
 import Home from "./Home.jsx";
 import Study from "./Study.jsx";
@@ -156,23 +159,65 @@ function Header({ path, motion, setMotion }) {
     </header>
   );
 }
-function Footer() {
+function Footer({ motion }) {
   const [social, setSocial] = useState(null);
+  const footer = useRef();
+  useEffect(() => {
+    if (!motion) return;
+    const ctx = gsap.context(() => {
+      gsap.utils
+        .toArray(
+          ".footer-invitation > *, .footer-identity, .footer-group, .footer-brand-display",
+        )
+        .forEach((el, i) => {
+          gsap.from(el, {
+            x: (i % 2 ? 1 : -1) * (innerWidth < 600 ? 24 : 60),
+            opacity: 0.15,
+            duration: 0.8,
+            delay: (i % 3) * 0.1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 94%",
+              end: "bottom 5%",
+              toggleActions: "play reverse play reverse",
+            },
+          });
+        });
+    }, footer);
+    return () => ctx.revert();
+  }, [motion]);
   return (
-    <footer className="site-footer">
+    <footer className="site-footer" ref={footer}>
+      <div className="footer-invitation">
+        <div>
+          <span className="eyebrow">
+            One process. A more considered next step.
+          </span>
+          <h2>
+            Better questions.
+            <br />
+            <em>Clearer possibilities.</em>
+          </h2>
+        </div>
+        <a className="footer-study-link" href="/study">
+          Start with one decision <Arrow diagonal />
+        </a>
+      </div>
       <div className="footer-top">
         <div className="footer-identity">
           <a href="/">
             <img
-              src="/media/logo/flowbacktest-wordmark-primary.svg"
+              src="/media/logo/flowbacktest-monogram-reverse.svg"
               alt="FlowBackTest"
-              width="245"
-              height="38"
+              width="54"
+              height="54"
             />
           </a>
           <p>
-            Better questions.
-            <br />A clearer path to rollout.
+            Model the handoff.
+            <br />
+            Return to the evidence.
           </p>
           <span className="eyebrow">Research-stage concept preview</span>
           <div className="socials">
@@ -246,6 +291,19 @@ function Footer() {
           </div>
         ))}
       </div>
+      <a
+        className="footer-brand-display"
+        href="/"
+        aria-label="FlowBackTest home"
+      >
+        <img
+          src="/media/logo/flowbacktest-wordmark-reverse.svg"
+          alt=""
+          width="1100"
+          height="172"
+        />
+        <span>People · Processes · A clearer path</span>
+      </a>
       <div className="footer-bottom">
         <span>© 2026 FlowBackTest</span>
         <span>All product views use synthetic example data.</span>
@@ -370,7 +428,7 @@ function App() {
           )}
         </Suspense>
       </main>
-      {!demo && <Footer />}
+      {!demo && <Footer motion={motion} />}
       <Preferences />
     </>
   );

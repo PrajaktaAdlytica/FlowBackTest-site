@@ -1182,7 +1182,7 @@ button:hover > svg {
   max-height: 550px;
   object-fit: contain;
   align-self: center;
-  transform: rotate(-5deg);
+  transform: none;
   filter: drop-shadow(5px 15px 10px #483a2517);
 }
 .belief-copy {
@@ -1286,13 +1286,13 @@ button:hover > svg {
   background: url("/media/heritage/oxblood-country-tartan.webp") center/cover;
   padding: 30px;
   max-width: 350px;
-  transform: rotate(2deg);
+  transform: none;
 }
 .teaser-image img {
   display: block;
   width: 100%;
   height: auto;
-  transform: rotate(-6deg);
+  transform: none;
   filter: drop-shadow(4px 6px 5px #243d2e1a);
 }
 .teaser-copy h2 {
@@ -2703,5 +2703,402 @@ button:hover > svg {
   }
   .menu-toggle {
     min-height: 44px;
+  }
+}
+
+/* October refinement: clear scenery, centered hero and heritage chapter surfaces. */
+.home,
+.site-footer {
+  overflow-x: clip;
+}
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 800px;
+}
+.hero-visual {
+  inset: 0;
+  height: 100%;
+}
+.hero-visual img {
+  object-position: 58% center;
+  filter: brightness(0.57) saturate(0.92);
+}
+.hero-copy {
+  width: 100%;
+  max-width: 1100px;
+  padding: 140px 32px 110px;
+  text-align: center;
+  color: #fffefa;
+}
+.hero-copy > .eyebrow,
+.hero-copy h1,
+.hero-copy h1 em,
+.hero-copy > p,
+.hero-small-note {
+  color: #fffefa;
+}
+.hero-copy h1 {
+  font-size: clamp(76px, 7.5vw, 112px);
+  max-width: 1020px;
+  margin: 0 auto;
+  text-wrap: balance;
+}
+.hero-copy > .eyebrow {
+  margin-bottom: 24px;
+  letter-spacing: 0.16em;
+}
+.hero-copy > p {
+  max-width: 580px;
+  margin: 25px auto 28px;
+}
+.hero-copy .hero-ctas {
+  justify-content: center;
+}
+.hero-copy .btn {
+  background: #f4f0e6;
+  color: #243d2e;
+  border-color: #f4f0e6;
+}
+.hero-copy .btn:hover {
+  background: #dce4ce;
+  border-color: #dce4ce;
+}
+.hero-copy .text-link {
+  color: #fffefa;
+  border-color: #fffefa80;
+}
+.hero-small-note {
+  margin-top: 25px;
+}
+.hero-small-note > span {
+  margin: 0 auto 10px;
+  background: #fffefa8c;
+}
+.hero-caption {
+  display: none;
+}
+.hero-bottom {
+  color: #fffefa;
+  border-color: #fffefa50;
+}
+.hero-disclosure {
+  background: #243d2ec7;
+  color: #fffefa;
+  border-radius: 0;
+}
+.site-header:not(.is-scrolled) {
+  background: #f4f0e6f5;
+}
+.workspace-section {
+  background: url("/media/heritage/botanical-diamond-paper.webp") center / 740px
+    auto;
+}
+.workspace-section .section-header {
+  background: #fffefaf2;
+  border: 1px solid #d8d4c5;
+  padding: 32px;
+  margin-bottom: 32px;
+  box-shadow: 0 6px 20px #4c493411;
+}
+.workspace-preview {
+  background: #fffefa;
+  box-shadow: 0 15px 45px #32432d20;
+}
+.workspace-notes {
+  padding: 18px 22px;
+  background: #fffefaf2;
+}
+.belief-stamp,
+.teaser-image,
+.teaser-image img {
+  rotate: 0deg;
+}
+.people-section {
+  background-color: #dce3d2;
+  background-image:
+    linear-gradient(#dce3d2ed, #dce3d2ed),
+    url("/media/heritage/quiet-rose-linen.webp");
+  background-size: cover;
+}
+.people-grid article {
+  border-color: #8c9c7b;
+}
+.people-number {
+  color: #506443;
+}
+.incumbent-note {
+  border-color: #9ba98d;
+}
+.cta-copy {
+  background: none;
+  width: 48%;
+  padding: 70px 5vw;
+  min-height: 570px;
+}
+.cta-copy h2 {
+  max-width: 440px;
+  font-size: clamp(44px, 4.4vw, 64px);
+  text-wrap: balance;
+}
+.cta-copy .hero-ctas {
+  gap: 20px;
+}
+.closing-cta > img {
+  opacity: 1;
+}
+
+/* A garden-green colophon with a restrained brass rule and expansive wordmark. */
+.site-footer {
+  background: #20382c;
+  color: #f4f0e6;
+  padding: 70px 5vw 24px;
+  border-top: 4px solid #ac9a6f;
+}
+.footer-invitation {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 35px;
+  padding: 0 0 55px;
+  margin-bottom: 48px;
+  border-bottom: 1px solid #f4f0e633;
+}
+.footer-invitation .eyebrow,
+.footer-identity .eyebrow {
+  color: #c4cfb5;
+}
+.footer-invitation h2 {
+  font-size: clamp(48px, 5.4vw, 78px);
+  line-height: 1.04;
+  margin-top: 21px;
+  color: #f4f0e6;
+}
+.footer-study-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  min-width: 260px;
+  padding: 20px 0;
+  border-bottom: 1px solid #bfaa79;
+  font-size: 16px;
+  color: #f4f0e6;
+  transition:
+    color 0.3s,
+    border-color 0.3s;
+}
+.footer-study-link svg {
+  width: 26px;
+  height: 26px;
+  transition: transform 0.3s;
+}
+.footer-study-link:hover {
+  color: #d9ccaa;
+  border-color: #f4f0e6;
+}
+.footer-study-link:hover svg {
+  transform: translate(4px, -4px);
+}
+.footer-top {
+  grid-template-columns: 34% 22% 22% 22%;
+  gap: 0;
+}
+.footer-identity > a > img {
+  width: 54px;
+  height: 54px;
+}
+.footer-identity p {
+  font-size: 27px;
+  line-height: 1.14;
+  margin-top: 17px;
+}
+.footer-group h3 {
+  color: #d9ccaa;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 10px;
+}
+.footer-group > a {
+  color: #e4e8db;
+  font-size: 14px;
+  margin: 13px 0;
+  text-decoration: none;
+  transition:
+    color 0.25s,
+    transform 0.25s;
+}
+.footer-group > a:hover {
+  color: #d9ccaa;
+  transform: translateX(4px);
+}
+.site-footer .socials button {
+  width: 42px;
+  height: 42px;
+  background: #f4f0e6;
+  border-color: #f4f0e6;
+  border-radius: 50%;
+}
+.site-footer .socials button:hover {
+  background: #d9ccaa;
+  transform: translateY(-3px);
+}
+.footer-brand-display {
+  display: block;
+  margin-top: 58px;
+  padding-top: 38px;
+  border-top: 1px solid #f4f0e633;
+}
+.footer-brand-display img {
+  width: 100%;
+  height: auto;
+  opacity: 0.88;
+  transition: opacity 0.3s;
+}
+.footer-brand-display:hover img {
+  opacity: 1;
+}
+.footer-brand-display > span {
+  display: block;
+  margin-top: 20px;
+  font-size: 9px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  text-align: right;
+  color: #c4cfb5;
+}
+.footer-bottom {
+  color: #c4cfb5;
+  margin-top: 32px;
+  border-color: #f4f0e633;
+}
+@media (max-width: 900px) {
+  .footer-invitation {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .footer-study-link {
+    min-width: 280px;
+  }
+}
+@media (max-width: 600px) {
+  .hero {
+    min-height: 850px;
+    height: 100svh;
+    max-height: none;
+  }
+  .hero-visual {
+    inset: 0;
+    height: 100%;
+  }
+  .hero-visual img {
+    object-position: 68% center;
+  }
+  .hero-copy {
+    padding: 125px 6vw 130px;
+    width: 100%;
+  }
+  .hero-copy h1 {
+    font-size: 58px;
+    line-height: 1;
+    max-width: 100%;
+  }
+  .hero-copy > .eyebrow {
+    font-size: 8px;
+    max-width: 230px;
+    line-height: 1.7;
+    margin: 0 auto 23px;
+  }
+  .hero-copy > p {
+    font-size: 16px;
+    max-width: 330px;
+  }
+  .hero-copy .hero-ctas {
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .hero-copy .hero-small-note {
+    display: block;
+  }
+  .hero-bottom {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+    padding: 16px 0 55px;
+  }
+  .hero-disclosure {
+    max-width: none;
+    text-align: center;
+  }
+  .workspace-section .section-header {
+    padding: 25px 20px;
+  }
+  .workspace-notes {
+    padding: 20px;
+  }
+  .closing-cta {
+    min-height: 800px;
+  }
+  .closing-cta > img {
+    top: auto;
+    bottom: 0;
+    height: 290px;
+    object-position: 65% center;
+  }
+  .cta-copy {
+    width: 100%;
+    min-height: 800px;
+    padding-bottom: 335px;
+    background: none;
+  }
+  .site-footer {
+    padding: 52px 6vw 70px;
+  }
+  .footer-invitation {
+    padding-bottom: 32px;
+    margin-bottom: 32px;
+  }
+  .footer-invitation h2 {
+    font-size: 47px;
+  }
+  .footer-invitation .eyebrow {
+    font-size: 8px;
+    max-width: 250px;
+    line-height: 1.7;
+  }
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 20px;
+  }
+  .footer-identity {
+    grid-column: 1 / -1;
+  }
+  .footer-identity p {
+    font-size: 27px;
+  }
+  .footer-group:last-child {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+  }
+  .footer-group:last-child h3 {
+    grid-column: 1 / -1;
+    margin-bottom: 6px;
+  }
+  .footer-group > a {
+    font-size: 13px;
+  }
+  .footer-brand-display {
+    margin-top: 35px;
+    padding-top: 28px;
+  }
+  .footer-brand-display > span {
+    font-size: 7px;
+    letter-spacing: 0.15em;
   }
 }

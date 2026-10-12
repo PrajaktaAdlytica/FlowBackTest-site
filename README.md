@@ -19,7 +19,7 @@ npm run build
 npm run preview
 ```
 
-The build produces `dist/`, including 23 direct-load routes and a branded 404 view. `.openai/hosting.json` binds the private Sites preview. GitHub, Vercel, a custom domain and real business services are separate future setup steps.
+The build produces `dist/`, including 23 direct-load routes and a branded 404 view. `.openai/hosting.json` binds the public Sites preview. GitHub, Vercel, a custom domain and real business services are separate future setup steps.
 
 ## Experience
 

@@ -115,6 +115,94 @@
       "height": 844,
       "alt": "Workflow Proof Cloister product page",
       "source_assets": "cloister-workflow-proof.webp; Returning Wordmark"
+    },
+    {
+      "file": "refinement/closing-desktop-1440.jpg",
+      "route": "/",
+      "width": 1440,
+      "height": 900,
+      "alt": "Refined closing desktop 1440",
+      "source_assets": "Native browser render. Clean garden hero, botanical paper, sage linen, upright stamps and garden-green footer as applicable. See REFINEMENT.md."
+    },
+    {
+      "file": "refinement/evidence-stamp-desktop-1440.jpg",
+      "route": "/",
+      "width": 1440,
+      "height": 900,
+      "alt": "Refined evidence stamp desktop 1440",
+      "source_assets": "Native browser render. Clean garden hero, botanical paper, sage linen, upright stamps and garden-green footer as applicable. See REFINEMENT.md."
+    },
+    {
+      "file": "refinement/footer-1063.jpg",
+      "route": "/",
+      "width": 1063,
+      "height": 804,
+      "alt": "Refined footer 1063",
+      "source_assets": "Native browser render. Clean garden hero, botanical paper, sage linen, upright stamps and garden-green footer as applicable. See REFINEMENT.md."
+    },
+    {
+      "file": "refinement/footer-desktop-1440.jpg",
+      "route": "/",
+      "width": 1440,
+      "height": 900,
+      "alt": "Refined footer desktop 1440",
+      "source_assets": "Native browser render. Clean garden hero, botanical paper, sage linen, upright stamps and garden-green footer as applicable. See REFINEMENT.md."
+    },
+    {
+      "file": "refinement/footer-mobile-390.jpg",
+      "route": "/",
+      "width": 390,
+      "height": 844,
+      "alt": "Refined footer mobile 390",
+      "source_assets": "Native browser render. Clean garden hero, botanical paper, sage linen, upright stamps and garden-green footer as applicable. See REFINEMENT.md."
+    },
+    {
+      "file": "refinement/footer-top-desktop-1440.jpg",
+      "route": "/",
+      "width": 1440,
+      "height": 900,
+      "alt": "Refined footer top desktop 1440",
+      "source_assets": "Native browser render. Clean garden hero, botanical paper, sage linen, upright stamps and garden-green footer as applicable. See REFINEMENT.md."
+    },
+    {
+      "file": "refinement/hero-desktop-1440.jpg",
+      "route": "/",
+      "width": 1440,
+      "height": 900,
+      "alt": "Refined hero desktop 1440",
+      "source_assets": "Native browser render. Clean garden hero, botanical paper, sage linen, upright stamps and garden-green footer as applicable. See REFINEMENT.md."
+    },
+    {
+      "file": "refinement/hero-mobile-390.jpg",
+      "route": "/",
+      "width": 390,
+      "height": 844,
+      "alt": "Refined hero mobile 390",
+      "source_assets": "Native browser render. Clean garden hero, botanical paper, sage linen, upright stamps and garden-green footer as applicable. See REFINEMENT.md."
+    },
+    {
+      "file": "refinement/people-1063.jpg",
+      "route": "/",
+      "width": 1063,
+      "height": 804,
+      "alt": "Refined people 1063",
+      "source_assets": "Native browser render. Clean garden hero, botanical paper, sage linen, upright stamps and garden-green footer as applicable. See REFINEMENT.md."
+    },
+    {
+      "file": "refinement/study-stamp-desktop-1440.jpg",
+      "route": "/",
+      "width": 1440,
+      "height": 900,
+      "alt": "Refined study stamp desktop 1440",
+      "source_assets": "Native browser render. Clean garden hero, botanical paper, sage linen, upright stamps and garden-green footer as applicable. See REFINEMENT.md."
+    },
+    {
+      "file": "refinement/workspace-desktop-1440.jpg",
+      "route": "/",
+      "width": 1440,
+      "height": 900,
+      "alt": "Refined workspace desktop 1440",
+      "source_assets": "Native browser render. Clean garden hero, botanical paper, sage linen, upright stamps and garden-green footer as applicable. See REFINEMENT.md."
     }
   ]
 }

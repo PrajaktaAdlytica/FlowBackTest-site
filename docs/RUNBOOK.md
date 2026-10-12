@@ -68,16 +68,16 @@ No credentials or environment secrets belong in browser code, fixtures, screensh
 
 ## Preview hosting and routing
 
-The expected handoff target is an **owner/private Sites preview**. Record the actual URL/access mode only after the host confirms it. No public deployment, operating product, custom domain reservation or trademark clearance is claimed by this runbook.
+The expected handoff target is a **public Sites preview**. Record the actual URL/access mode only after the host confirms it. Public hosting is verified. No operating product, custom domain reservation or trademark clearance is claimed.
 
 | Hosting field | Actual value |
 |---|---|
 | Build output | `dist/`; Vite build with 23 direct-load HTML routes |
-| Preview URL | See the adjacent final deployment record |
-| Visibility / owner access | Expected owner/private; verify from host |
+| Preview URL | https://flowbacktest-preview.artfullarch32.chatgpt.site |
+| Visibility / owner access | Public; access policy revision 2 confirmed |
 | Source repository | Not supplied |
 | Public domain | Not connected / no availability claim |
-| Hosting QA | Pending |
+| Hosting QA | Public homepage opened without sign-in; refreshed-layout QA recorded in REFINEMENT.md |
 
 This build includes route directory index files and 404.html. On other hosts configure route fallback to `index.html` so direct loads of `/demo/map`, `/demo/scenarios`, `/demo/backtest`, `/demo/records`, `/pricing`, `/study` and `/product/{desk,review,proof,signal,report}` work. Exclude real static assets from rewrite fallback and check the useful 404 behavior. Include local asset paths and licenses; no absolute personal filesystem paths in shipped markup.
 

@@ -485,41 +485,54 @@ function Home({ motion }) {
             scrub: true,
           },
         });
-        gsap.utils
-          .toArray(".module-card")
-          .forEach((el, i) =>
-            gsap.from(el, {
-              y: 70,
-              rotation: i % 2 ? 0.8 : -0.8,
-              duration: 0.8,
-              ease: "power2.out",
-              scrollTrigger: {
-                trigger: el,
-                start: "top 92%",
-                toggleActions: "play none none reverse",
-              },
-            }),
-          );
         return () => {
           gsap.ticker.remove(raf);
           lenis.destroy();
         };
       });
-      gsap.utils
-        .toArray(".section-header h2,.belief h2,.cta-copy h2")
-        .forEach((el) =>
+      const entrances = [
+        [".early-proof", ":scope > *"],
+        [
+          ".workspace-section",
+          ".section-header > div, .workspace-preview, .workspace-notes > *",
+        ],
+        [
+          ".modules-section",
+          ".section-header > div, .module-card, .module-caption",
+        ],
+        [".belief", ".belief-stamp, .belief-copy > *"],
+        [
+          ".people-section",
+          ".section-header > div, .people-grid article, .incumbent-note > *",
+        ],
+        [
+          ".study-teaser",
+          ".teaser-image, .teaser-copy > :not(.price-lines), .price-lines > a",
+        ],
+        [".faq-section", ":scope > div:first-child, .faq-list details"],
+        [".closing-cta", ".cta-copy > *"],
+      ];
+      if (innerWidth < 900)
+        entrances.push([".journey", ".mobile-chapters article"]);
+      const distance = innerWidth < 600 ? 24 : 72;
+      entrances.forEach(([section, selector]) => {
+        const parent = scope.current.querySelector(section);
+        parent?.querySelectorAll(selector).forEach((el, i) => {
           gsap.from(el, {
-            y: 35,
-            opacity: 0.35,
-            duration: 1,
-            ease: "power2.out",
+            x: i % 2 ? distance : -distance,
+            opacity: 0.12,
+            duration: 0.8,
+            delay: (i % 3) * 0.11,
+            ease: "power3.out",
             scrollTrigger: {
               trigger: el,
-              start: "top 93%",
-              toggleActions: "play none none reverse",
+              start: "top 91%",
+              end: "bottom 8%",
+              toggleActions: "play reverse play reverse",
             },
-          }),
-        );
+          });
+        });
+      });
       return () => mm.revert();
     }, scope);
     const update = () => ScrollTrigger.refresh();
@@ -551,23 +564,20 @@ function Home({ motion }) {
         <picture className="hero-visual">
           <source
             media="(max-width:700px)"
-            srcSet="/media/garden/garden-hero-900.webp"
+            srcSet="/media/garden/garden-hero-clear-900.webp"
           />
           <img
-            src="/media/garden/garden-hero.webp"
+            src="/media/garden/garden-hero-clear.webp"
             alt="A rose-covered stone arch and two sculptural figures beside branching paths in an English walled garden"
             width="1774"
             height="887"
             fetchPriority="high"
           />
         </picture>
-        <div className="hero-wash" />
         <div className="hero-copy">
           <span className="eyebrow">Before the agent. Before the rollout.</span>
           <h1>
-            Model the
-            <br />
-            handoff
+            Model the handoff
             <br />
             before <em>rollout.</em>
           </h1>
