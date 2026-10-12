@@ -1302,7 +1302,7 @@ function Pricing() {
       </Hero>
       <section className="sub-section sub-pricing-section">
         <div className="sub-pricing-grid">
-          <article className="sub-price-card">
+          <article className="sub-price-card" tabIndex={0} aria-label="One-process backtest study price hypothesis">
             <div className="sub-price-head">
               <span className="sub-eyebrow">Start with evidence</span>
               <span className="sub-price-badge">Price hypothesis</span>
@@ -1329,7 +1329,7 @@ function Pricing() {
             <Action>Draft a study request</Action>
             <small>Scope and commercial terms would need agreement.</small>
           </article>
-          <article className="sub-price-card sub-price-pilot">
+          <article className="sub-price-card sub-price-pilot" tabIndex={0} aria-label="Monitored twin pilot price hypothesis">
             <div className="sub-price-head">
               <span className="sub-eyebrow">After a useful study</span>
               <span className="sub-price-badge">Price hypothesis</span>
