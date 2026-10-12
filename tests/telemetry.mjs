@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+globalThis.window=new EventTarget();globalThis.location={pathname:'/study',search:'?utm_campaign=study-test&utm_source=name%40example.com'};
+const t=await import('../src/telemetry.js');
+t.track('form_start');assert.equal(t.getTelemetry().events.length,0);
+t.setConsent(true);t.track('form_start');t.track('form_start');t.track('form_submit',{email:'never-log@example.com'});t.track('verified_signup');t.track('interview_booked');
+const events=t.getTelemetry().events;assert.equal(events.length,3);assert.equal(events[0].utm.utm_source,null);assert.equal(events[0].utm.utm_campaign,'study-test');
+assert(events.every(e=>e.namespace==='demo.synthetic'&&e.synthetic&&e.consent.analytics==='granted'));
+assert.equal(events.find(e=>e.event_name==='form_submit').properties.submission_state,'local_draft');assert(!JSON.stringify(events).includes('never-log'));
+t.saveDraft({company:'Fictional'});t.clearDemoData();assert.equal(t.getDraft(),null);assert.equal(t.getTelemetry().events.length,0);t.track('form_start');assert.equal(t.getTelemetry().events.length,0);
+console.log('PASS consent gating, schema envelope, event dedupe, UTM sanitization, no form PII, disabled conversions and revocation');

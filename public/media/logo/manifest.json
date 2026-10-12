@@ -1,0 +1,38 @@
+{
+  "selected": "Option 4 \u2014 The Returning Wordmark",
+  "source": "flowbacktest-logo-exploration-v2/04-Returning-Wordmark.png",
+  "method": "Spline vectorization of the selected primary wordmark and compact FB study; threshold masks, speckle removal, cubic B\u00e9zier outlines. Not an independently redrawn typeface.",
+  "wordmark_ratio": 6.53,
+  "colors": {
+    "primary": "#243D2E",
+    "burgundy": "#743F48",
+    "black": "#000000",
+    "white": "#FFFFFF",
+    "reverse": "#FFFEFA"
+  },
+  "files": [
+    "flowbacktest-wordmark-primary.svg",
+    "flowbacktest-monogram-primary.svg",
+    "flowbacktest-wordmark-burgundy.svg",
+    "flowbacktest-monogram-burgundy.svg",
+    "flowbacktest-wordmark-black.svg",
+    "flowbacktest-monogram-black.svg",
+    "flowbacktest-wordmark-white.svg",
+    "flowbacktest-monogram-white.svg",
+    "flowbacktest-wordmark-reverse.svg",
+    "flowbacktest-monogram-reverse.svg",
+    "flowbacktest-wordmark-currentcolor.svg",
+    "flowbacktest-monogram-currentcolor.svg",
+    "flowbacktest-app-icon-light.svg",
+    "flowbacktest-favicon-light.svg",
+    "flowbacktest-app-icon-dark.svg",
+    "flowbacktest-favicon-dark.svg"
+  ],
+  "minimums": {
+    "wordmark": "180 CSS px wide recommended; 160 px minimum after contextual review",
+    "monogram": "24 px minimum; use 32 px or larger for app/navigation",
+    "favicon": "32 px artwork; inspect browser 16 px downsample in context"
+  },
+  "clear_space": "At least half the capital letter height around the full wordmark; at least one quarter compact-mark height around monogram.",
+  "usage": "Full wordmark is the primary identity. FB is a compact application mark. Keep flat fills, preserve proportions, no shadows or textures."
+}

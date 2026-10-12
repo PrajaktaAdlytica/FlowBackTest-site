@@ -1,0 +1,41 @@
+fonts/EBGaramond-Italic-variable.ttf — https://raw.githubusercontent.com/google/fonts/main/ofl/ebgaramond/EBGaramond-Italic%5Bwght%5D.ttf
+fonts/EBGaramond-variable.ttf — https://raw.githubusercontent.com/google/fonts/main/ofl/ebgaramond/EBGaramond%5Bwght%5D.ttf
+fonts/ebgaramond-OFL.txt — https://raw.githubusercontent.com/google/fonts/main/ofl/ebgaramond/OFL.txt
+fonts/sourcesans3-OFL.txt — https://raw.githubusercontent.com/google/fonts/main/ofl/sourcesans3/OFL.txt
+fonts/SourceSans3-Italic-variable.ttf — https://raw.githubusercontent.com/google/fonts/main/ofl/sourcesans3/SourceSans3-Italic%5Bwght%5D.ttf
+fonts/SourceSans3-variable.ttf — https://raw.githubusercontent.com/google/fonts/main/ofl/sourcesans3/SourceSans3%5Bwght%5D.ttf
+icons/arrow-right.svg — https://unpkg.com/lucide-static@0.468.0/icons/arrow-right.svg
+icons/arrow-up-right.svg — https://unpkg.com/lucide-static@0.468.0/icons/arrow-up-right.svg
+icons/chevron-down.svg — https://unpkg.com/lucide-static@0.468.0/icons/chevron-down.svg
+icons/menu.svg — https://unpkg.com/lucide-static@0.468.0/icons/menu.svg
+icons/x.svg — https://unpkg.com/lucide-static@0.468.0/icons/x.svg
+icons/search.svg — https://unpkg.com/lucide-static@0.468.0/icons/search.svg
+icons/check.svg — https://unpkg.com/lucide-static@0.468.0/icons/check.svg
+icons/circle-alert.svg — https://unpkg.com/lucide-static@0.468.0/icons/circle-alert.svg
+icons/info.svg — https://unpkg.com/lucide-static@0.468.0/icons/info.svg
+icons/mail.svg — https://unpkg.com/lucide-static@0.468.0/icons/mail.svg
+icons/download.svg — https://unpkg.com/lucide-static@0.468.0/icons/download.svg
+icons/play.svg — https://unpkg.com/lucide-static@0.468.0/icons/play.svg
+icons/pause.svg — https://unpkg.com/lucide-static@0.468.0/icons/pause.svg
+icons/rotate-ccw.svg — https://unpkg.com/lucide-static@0.468.0/icons/rotate-ccw.svg
+icons/git-fork.svg — https://unpkg.com/lucide-static@0.468.0/icons/git-fork.svg
+icons/chart-no-axes-combined.svg — https://unpkg.com/lucide-static@0.468.0/icons/chart-no-axes-combined.svg
+icons/file-clock.svg — https://unpkg.com/lucide-static@0.468.0/icons/file-clock.svg
+icons/list-filter.svg — https://unpkg.com/lucide-static@0.468.0/icons/list-filter.svg
+icons/shield-check.svg — https://unpkg.com/lucide-static@0.468.0/icons/shield-check.svg
+icons/eye.svg — https://unpkg.com/lucide-static@0.468.0/icons/eye.svg
+icons/lock-keyhole.svg — https://unpkg.com/lucide-static@0.468.0/icons/lock-keyhole.svg
+icons/layers.svg — https://unpkg.com/lucide-static@0.468.0/icons/layers.svg
+icons/calendar-days.svg — https://unpkg.com/lucide-static@0.468.0/icons/calendar-days.svg
+icons/external-link.svg — https://unpkg.com/lucide-static@0.468.0/icons/external-link.svg
+icons/Lucide-LICENSE.txt — https://raw.githubusercontent.com/lucide-icons/lucide/main/LICENSE
+icons/crunchbase-official.png — https://cdn.prod.website-files.com/687e6d0359c517be389ea464/69fd4100b4bf0660b980fdf7_crunchbase_2022_146AFF_logo_blue.png
+LinkedIn: official in-logo.zip downloaded from https://brand.linkedin.com/downloads
+Concept page images: previous built-in Image Gen visual previews, original FlowBackTest concepts.
+icons/crunchbase-icon-official.png — unchanged official site apple-touch-icon from https://cdn.prod.website-files.com/687e6d0359c517be389ea464/69257c9295545c9acddcaa0d_cb-webclip-256x256.png
+
+NEW SCENIC ASSETS: 19 images generated with built-in ImageGen on 12 October 2026. Art direction references: user attachments ChatGPT Image 12 Oct 2026, 19_50_50.png (Cloister) and 19_50_40.png (Walled Garden). Full prompts/provenance in imagery-manifest.json. Original outputs copied without resizing or upscaling.
+
+SELECTED LOGO / Option 4 — The Returning Wordmark. 16 path-only SVGs vectorized from 04-Returning-Wordmark.png with vtracer 0.6.15; intermediate threshold masks used only for outline extraction. No stock-font substitution; no external fonts or embedded raster assets in final SVGs. See logos/returning-wordmark/manifest.json.
+
+HERITAGE MATERIALS / Built-in ImageGen, 12 October 2026. Inspired by five user-supplied JPEG references: -9.jpg, -8.jpg, -7.jpg, (4) Facebook.jpg and -6.jpg. New compositions and motifs generated; input images not redistributed. No claim of seamless tiling or third-party stock licensing. Full mapping/prompts in heritage-manifest.json.

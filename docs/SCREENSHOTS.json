@@ -1,0 +1,120 @@
+{
+  "captured_at": "2026-10-12",
+  "browser": "Codex in-app browser",
+  "capture_type": "Genuine browser viewport renders; JPEG; no composites",
+  "product_boundary": "All product data synthetic and unvalidated",
+  "screenshots": [
+    {
+      "file": "hero-desktop-1440.jpg",
+      "route": "/",
+      "width": 1440,
+      "height": 900,
+      "alt": "Garden homepage hero",
+      "source_assets": "garden-hero.webp; Returning Wordmark"
+    },
+    {
+      "file": "hero-mobile-390.jpg",
+      "route": "/",
+      "width": 390,
+      "height": 844,
+      "alt": "Responsive garden homepage hero",
+      "source_assets": "garden-hero-900.webp; Returning Wordmark"
+    },
+    {
+      "file": "core-workflow-desktop-1440.jpg",
+      "route": "/#journey",
+      "width": 1440,
+      "height": 900,
+      "alt": "Four process chapters in Motion off mode",
+      "source_assets": "cloister-source/triage/human-review/release.webp"
+    },
+    {
+      "file": "core-workflow-mobile-390.jpg",
+      "route": "/#journey",
+      "width": 390,
+      "height": 844,
+      "alt": "Stacked source chapter",
+      "source_assets": "cloister-source.webp"
+    },
+    {
+      "file": "pricing-desktop-1440.jpg",
+      "route": "/pricing",
+      "width": 1440,
+      "height": 900,
+      "alt": "Both hypothetical study and pilot prices",
+      "source_assets": "Native HTML/CSS pricing cards"
+    },
+    {
+      "file": "pricing-mobile-390.jpg",
+      "route": "/pricing",
+      "width": 390,
+      "height": 844,
+      "alt": "Stacked study hypothesis price",
+      "source_assets": "Native HTML/CSS pricing cards"
+    },
+    {
+      "file": "demo-boundary-desktop-1440.jpg",
+      "route": "/demo/map",
+      "width": 1440,
+      "height": 900,
+      "alt": "Persistent synthetic boundary and process workbench",
+      "source_assets": "Native UI; src/fixtures.js"
+    },
+    {
+      "file": "demo-boundary-mobile-390.jpg",
+      "route": "/demo/map",
+      "width": 390,
+      "height": 844,
+      "alt": "Responsive synthetic boundary and fixture summary",
+      "source_assets": "Native UI; src/fixtures.js"
+    },
+    {
+      "file": "demo-scenarios-desktop-1440.jpg",
+      "route": "/demo/scenarios",
+      "width": 1440,
+      "height": 900,
+      "alt": "Seeded scenario controls and uncertainty chart",
+      "source_assets": "Native SVG/HTML; src/simulation.js"
+    },
+    {
+      "file": "demo-narrow-mobile-390.jpg",
+      "route": "/demo/scenarios",
+      "width": 390,
+      "height": 844,
+      "alt": "Narrow conditional outcome chart and human gate",
+      "source_assets": "Native SVG/HTML; src/simulation.js"
+    },
+    {
+      "file": "study-success-desktop-1440.jpg",
+      "route": "/study",
+      "width": 1440,
+      "height": 900,
+      "alt": "Local draft success; nothing submitted",
+      "source_assets": "Native form; fictional example values"
+    },
+    {
+      "file": "study-success-mobile-390.jpg",
+      "route": "/study",
+      "width": 390,
+      "height": 844,
+      "alt": "Responsive local draft success",
+      "source_assets": "Native form; fictional example values"
+    },
+    {
+      "file": "module-desktop-1440.jpg",
+      "route": "/product/proof",
+      "width": 1440,
+      "height": 900,
+      "alt": "Workflow Proof Cloister product page",
+      "source_assets": "cloister-workflow-proof.webp; Returning Wordmark"
+    },
+    {
+      "file": "module-mobile-390.jpg",
+      "route": "/product/proof",
+      "width": 390,
+      "height": 844,
+      "alt": "Workflow Proof Cloister product page",
+      "source_assets": "cloister-workflow-proof.webp; Returning Wordmark"
+    }
+  ]
+}
