@@ -1,0 +1,322 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:flowbacktest:demo-event:1",
+  "title": "FlowBackTest consent-aware event envelope",
+  "description": "Contract for the implemented browser-memory synthetic debug log. No live analytics destination, real lead, signup verification, interview booking or server-side dedupe is connected. See QA.md and tests/telemetry.mjs for verified boundaries.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "event_id",
+    "event_name",
+    "namespace",
+    "synthetic",
+    "timestamp",
+    "session_id",
+    "route",
+    "consent",
+    "dedupe_key",
+    "utm",
+    "properties"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "event_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Unique event identifier generated once per accepted event."
+    },
+    "event_name": {
+      "type": "string",
+      "enum": [
+        "landing_view",
+        "demo_open",
+        "demo_complete",
+        "pricing_view",
+        "form_start",
+        "form_submit",
+        "verified_signup",
+        "interview_booked"
+      ]
+    },
+    "namespace": {
+      "type": "string",
+      "enum": ["demo.synthetic", "production.leads"],
+      "description": "Current build may emit only demo.synthetic. production.leads is reserved for an explicitly connected later integration."
+    },
+    "synthetic": {
+      "type": "boolean"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "UTC ISO 8601 occurrence time. Sample process timestamps belong in fixtures, not this field."
+    },
+    "session_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Ephemeral random browser-memory session identifier; no cross-session identity or entered email."
+    },
+    "route": {
+      "type": "string",
+      "pattern": "^/",
+      "description": "Canonical pathname only. Do not log URL query strings containing free text or personal data."
+    },
+    "consent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["analytics", "source"],
+      "properties": {
+        "analytics": {
+          "const": "granted",
+          "description": "Log an analytics event only after an explicit opt-in. A declined preference is not a tracked event."
+        },
+        "source": {
+          "enum": ["demo_consent_control", "production_consent_control"]
+        }
+      }
+    },
+    "dedupe_key": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Session-scoped key based on namespace, event name, canonical route and intentional action instance. A rerender or duplicate listener must not create a second event."
+    },
+    "utm": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "utm_source": {
+          "type": ["string", "null"]
+        },
+        "utm_medium": {
+          "type": ["string", "null"]
+        },
+        "utm_campaign": {
+          "type": ["string", "null"]
+        },
+        "utm_content": {
+          "type": ["string", "null"]
+        },
+        "utm_term": {
+          "type": ["string", "null"]
+        }
+      },
+      "description": "Allowlisted campaign fields only. Sanitize values and exclude personal data. Missing values stay null/absent; do not invent campaign attribution. Never collect the entire referring URL."
+    },
+    "properties": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "page_type": {
+          "enum": [
+            "home",
+            "product",
+            "method",
+            "data",
+            "pricing",
+            "solutions",
+            "company",
+            "contact",
+            "privacy",
+            "terms",
+            "sign_in",
+            "resources",
+            "study",
+            "demo",
+            "not_found"
+          ]
+        },
+        "module": {
+          "enum": ["desk", "review", "proof", "signal", "report", "all"]
+        },
+        "demo_view": {
+          "enum": ["map", "scenarios", "backtest", "records"]
+        },
+        "entry_point": {
+          "type": "string",
+          "description": "Controlled UI identifier such as hero_demo_cta; no user-entered text."
+        },
+        "form_id": {
+          "enum": ["study", "contact", "demo_sign_in"]
+        },
+        "submission_state": {
+          "enum": ["local_draft", "server_accepted", "verified"]
+        },
+        "scenario_changed": {
+          "type": "boolean"
+        },
+        "completion_definition": {
+          "type": "string",
+          "description": "Controlled identifier for the actually reached demo milestone; never buyer qualification."
+        },
+        "evidence_ref": {
+          "type": "string",
+          "description": "Production-only opaque reference to actual verification/booking evidence. Never include contact data or booking details."
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "namespace": {
+            "const": "demo.synthetic"
+          }
+        },
+        "required": ["namespace"]
+      },
+      "then": {
+        "properties": {
+          "synthetic": {
+            "const": true
+          },
+          "event_name": {
+            "not": {
+              "enum": ["verified_signup", "interview_booked"]
+            }
+          },
+          "properties": {
+            "properties": {
+              "submission_state": {
+                "const": "local_draft"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "namespace": {
+            "const": "production.leads"
+          }
+        },
+        "required": ["namespace"]
+      },
+      "then": {
+        "properties": {
+          "synthetic": {
+            "const": false
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "event_name": {
+            "enum": ["verified_signup", "interview_booked"]
+          }
+        },
+        "required": ["event_name"]
+      },
+      "then": {
+        "properties": {
+          "namespace": {
+            "const": "production.leads"
+          },
+          "synthetic": {
+            "const": false
+          },
+          "properties": {
+            "required": ["evidence_ref"]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "event_name": {
+            "enum": ["form_start", "form_submit"]
+          }
+        },
+        "required": ["event_name"]
+      },
+      "then": {
+        "properties": {
+          "properties": {
+            "required": ["form_id"]
+          }
+        }
+      }
+    }
+  ],
+  "x-current-build-policy": {
+    "active_namespace": "demo.synthetic",
+    "storage": "Browser memory only; inspected implementation. No local/session storage or cookies.",
+    "transport": "None. User-triggered download of the synthetic debug log only.",
+    "dedupe": "Implemented client session dedupe. Server-side dedupe remains required before real conversion tracking.",
+    "revocation": "Stop logging immediately when analytics consent is revoked; clear current in-memory event log and identifiers through the visible demo clear/reset control.",
+    "form_boundary": "Form success is a local draft; no request delivered, no account verified and no interview booked.",
+    "prohibited_fields": [
+      "email",
+      "name",
+      "company",
+      "phone",
+      "free_text",
+      "password",
+      "raw_logs",
+      "case_records",
+      "contracts",
+      "secrets",
+      "full_url",
+      "full_referrer"
+    ],
+    "quality_checks_verified": [
+      "No events before consent",
+      "No events after revocation",
+      "Duplicate render/listener does not duplicate an event",
+      "Synthetic and real namespaces never mixed",
+      "No personal form values in debug events",
+      "No fixture payload in outbound request",
+      "Local success does not fire verified_signup or interview_booked"
+    ]
+  },
+  "x-event-definitions": {
+    "landing_view": {
+      "trigger": "Canonical public page becomes readable after navigation with analytics opt-in",
+      "dedupe": "Once per intentional route-view instance; no duplicate on rerender",
+      "current_status": "Demo only; implemented"
+    },
+    "demo_open": {
+      "trigger": "Visitor enters the synthetic workspace",
+      "dedupe": "Once per intentional demo-opening instance",
+      "current_status": "Demo only; implemented"
+    },
+    "demo_complete": {
+      "trigger": "Visitor reaches the defined mock scenario/backtest completion state",
+      "dedupe": "Once per completion instance",
+      "current_status": "Demo only; implemented; no qualified lead or customer validation implication"
+    },
+    "pricing_view": {
+      "trigger": "Hypothesis pricing page becomes readable",
+      "dedupe": "Once per intentional pricing-view instance",
+      "current_status": "Demo only; implemented"
+    },
+    "form_start": {
+      "trigger": "First user interaction with a study/contact demo form",
+      "dedupe": "Once per form instance",
+      "current_status": "Demo only; implemented"
+    },
+    "form_submit": {
+      "trigger": "Valid fields and explicit required privacy consent produce local draft success",
+      "dedupe": "Once per intentional accepted submit instance; block duplicate handler events",
+      "current_status": "Demo only; implemented; submission_state must be local_draft"
+    },
+    "verified_signup": {
+      "trigger": "Future server confirms a genuine signup/required verification",
+      "dedupe": "Server-side by verification evidence and event ID",
+      "current_status": "Disabled in this demo; no real verification connected"
+    },
+    "interview_booked": {
+      "trigger": "Future booking service confirms an actual appointment",
+      "dedupe": "Server-side by booking evidence and event ID",
+      "current_status": "Disabled in this demo; no calendar/booking service connected"
+    }
+  }
+}
