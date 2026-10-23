@@ -204,6 +204,10 @@ function Footer({ motion }) {
   }, [motion]);
   return (
     <footer className="site-footer" ref={footer}>
+      <div className="footer-funding" role="note">
+        <span className="eyebrow">Company announcement</span>
+        <p>FlowBackTest has received venture capital funding. The investor and funding amount will be announced later.</p>
+      </div>
       <div className="footer-invitation">
         <div>
           <span className="eyebrow">
@@ -235,6 +239,13 @@ function Footer({ motion }) {
             Return to the evidence.
           </p>
           <span className="eyebrow">Research-stage concept preview</span>
+          <address className="footer-address">
+            48<br />
+            Vinh City<br />
+            Nghe An Province<br />
+            400960<br />
+            Vietnam
+          </address>
           <div className="socials">
             <button
               aria-label="LinkedIn profile status"

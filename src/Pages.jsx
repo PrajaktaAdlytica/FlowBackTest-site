@@ -1683,6 +1683,8 @@ function About() {
           domain clearance have not been established. This site does not
           represent an operating SaaS company.
         </Notice>
+        <p className="sub-eyebrow">Company address</p>
+        <address>48, Vinh City, Nghe An Province, 400960, Vietnam</address>
       </section>
       <Closing />
     </>
@@ -1755,6 +1757,10 @@ function Contact() {
             <Icon />
           </a>
         </div>
+      </section>
+      <section className="sub-section">
+        <p className="sub-eyebrow">Company address</p>
+        <address>48, Vinh City, Nghe An Province, 400960, Vietnam</address>
       </section>
       <section className="sub-section">
         <Accordion
@@ -1882,8 +1888,7 @@ function Privacy() {
               Before collecting real requests, the website needs a verified
               contact destination, responsible operator, defined retention
               period, deletion route, consent handling and any region-specific
-              requirements. No invented company address or email is published
-              here.
+              requirements. No contact email is connected here.
             </p>
             <p>
               This is a product preview notice, not a completed policy for an
